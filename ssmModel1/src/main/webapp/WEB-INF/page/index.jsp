@@ -165,7 +165,7 @@
 							<p><%=customer.getUsername()%>,您好
 							</p>
 							<p>
-								<a href="#">我的订单</a>|<a href="outLogin">退出</a>
+								<a href="shopCar">我的订单</a>|<a href="outLogin">退出</a>
 						</c:if>
 					</div>
 				</div>

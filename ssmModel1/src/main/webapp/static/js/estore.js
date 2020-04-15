@@ -54,6 +54,7 @@ $(function(){
 }*/
 function addShopCar(customer,bookId){
 	console.log(customer)
+	console.log(bookId)
 	if(customer==""){
 		alert("请先登录！")
 	}else{

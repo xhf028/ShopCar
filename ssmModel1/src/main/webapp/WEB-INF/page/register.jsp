@@ -113,7 +113,7 @@
 				<span>加我我们</span>|
 				<span>友情链接</span>
 			</p>
-			<p>沪ICP备14033591号-8 杰普briup.com版权所有 杰普软件科技有限公司</p>
+		
 			<img src="./static/images/police.png">
 		</div>
 	</div>

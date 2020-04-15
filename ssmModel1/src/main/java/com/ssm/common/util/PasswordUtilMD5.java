@@ -28,7 +28,6 @@ public class PasswordUtilMD5  {
 				} else {
 					hexString.append(Integer.toHexString(0xFF & hash[i]));
 				}
-
 			}
 			
 		} catch (NoSuchAlgorithmException e) {

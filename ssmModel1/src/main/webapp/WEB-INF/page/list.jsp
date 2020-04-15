@@ -26,8 +26,8 @@
 			<span ><a href="index1">首页</a></span>
 			<!-- <span ><a>登录</a></span>
 			<span ><a>注册</a></span> -->
-			<span ><a>我的订单</a></span>
-			<span ><a>退出</a></span>
+			<span ><a href="shopCar">我的订单</a></span>
+			<span ><a href="outLogin">退出</a></span>
 		</div>
 	</div>
 	

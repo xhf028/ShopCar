@@ -27,7 +27,7 @@
 	<div class="top" id="top">
 		<div class="herf">
 			<span><a href="index">首页</a></span> <span><a href="userinfo">个人信息</a></span>
-			<span><a>我的订单</a></span> <span><a>退出</a></span>
+			<span><a href="shopCar">我的订单</a></span> <span><a href="outLogin">退出</a></span>
 		</div>
 	</div>
 
@@ -150,10 +150,10 @@
 				</div>
 				<div class="row">
 					
-						<button class="col-md-5 column btn btn-estore" onclick="addShopCar('${customer}','${book.id}')">加入书包</button>
+						<button class="col-md-5 column btn btn-estore" onclick="addShopCar('${customer}','${viewBook.id}')">加入书包</button>
 					
 					<p class="col-md-2 column"></p>
-					<a href="">
+					<a href="shopCar">
 						<button class="col-md-5 column btn btn-shopCar">立即购买</button>
 					</a>
 				</div>
@@ -181,7 +181,7 @@
 			<p>
 				<span>关于我们</span>| <span>联系我们</span>| <span>加我我们</span>| <span>友情链接</span>
 			</p>
-			<p>沪ICP备14033591号-8 杰普briup.com版权所有 杰普软件科技有限公司</p>
+
 			<img src="./static/images/police.png">
 		</div>
 	</div>

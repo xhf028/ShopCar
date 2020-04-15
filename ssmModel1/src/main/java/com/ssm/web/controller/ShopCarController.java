@@ -26,6 +26,7 @@ public class ShopCarController {
 	
 	@RequestMapping("shopCar")
 	public String getShopCar() {
+		shopCarService.addOrder();
 		return "shopCar";
 	}
 	

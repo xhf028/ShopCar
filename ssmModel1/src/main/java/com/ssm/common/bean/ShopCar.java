@@ -9,6 +9,15 @@ private int id;				//购物车订单id
 private int customerId;		//顾客id
 private int bookId;			//书籍id
 private int num;			//书籍数量
+private Book book;
+
+
+public Book getBook() {
+	return book;
+}
+public void setBook(Book book) {
+	this.book = book;
+}
 public ShopCar(int id, int customerId, int bookId, int num) {
 	super();
 	this.id = id;

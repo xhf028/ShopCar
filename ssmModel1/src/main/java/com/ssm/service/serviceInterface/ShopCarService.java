@@ -10,4 +10,6 @@ import com.ssm.common.bean.Customer;
 public interface ShopCarService {
 
 	public void addShopCar(Customer customer,int bookId);
+	
+	public void addOrder();
 }

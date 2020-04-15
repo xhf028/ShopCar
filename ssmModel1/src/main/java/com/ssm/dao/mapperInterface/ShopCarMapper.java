@@ -1,5 +1,7 @@
 package com.ssm.dao.mapperInterface;
 
+import java.util.List;
+
 import com.ssm.common.bean.ShopCar;
 
 /**
@@ -17,4 +19,7 @@ public interface ShopCarMapper {
 	
 	//购物信息已存在则添加num
 	public void addNumShopCar(int id);
+	
+	//根据用户ID获取购物车详情
+	public List<ShopCar> getShopCarByCustomerId(int customerId);
 }

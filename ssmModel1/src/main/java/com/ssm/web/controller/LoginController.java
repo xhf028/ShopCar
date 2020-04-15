@@ -34,12 +34,7 @@ import com.ssm.service.serviceInterface.BookService;
 public class LoginController {
 	@Autowired
 	private LoginServiceImpl loginServiceImpl;
-	@Autowired
-	private ServletContext application;
-	@Autowired
-	private BookServiceImpl bookServiceImpl;
-	@Autowired
-	private CategoryServiceImpl categoryServiceImpl;
+
 	@Autowired
 	private HttpServletRequest request;
 	
@@ -52,11 +47,11 @@ public class LoginController {
 	public String getLogin() {
 	//	List<Book> list = bookServiceImpl.findAllBooks();
 	//	System.out.println(list);
-		List<Category> list2 = categoryServiceImpl.findAllCategory();
+		//List<Category> list2 = categoryServiceImpl.findAllCategory();
 
 		//System.out.println(list2);
 	//	application.setAttribute("books", list);
-		application.setAttribute("categorys", list2);
+		//application.setAttribute("categorys", list2);
 		log.info("初始化界面成功");
 		String str = PasswordUtilMD5.addLockForPassword("ajkdbakwbdkb");
 		log.info("加密过后的密码："+str);

@@ -8,18 +8,42 @@
 		<result column="customer_id" property="customerId" />
 		<result column="book_id" property="bookId" />
 		<result column="num" property="num" />
-
 	</resultMap>
-	<!-- 登录进行用户匹配，通过账户查询 -->
+
+	<resultMap type="com.ssm.common.bean.ShopCar" id="shopBookMap">
+		<id column="id" property="id" />
+		<result column="customer_id" property="customerId" />
+		<result column="book_id" property="bookId" />
+		<result column="num" property="num" />
+		<association property="book" javaType="com.ssm.common.bean.Book">
+			<id column="id2" property="id" />
+			<result column="name" property="name" />
+			<result column="price" property="price" />
+			<result column="category_id2" property="categoryId" />
+			<result column="image" property="image" />
+		</association>
+	</resultMap>
+
+
 	<select id="verifyExsitInfo" resultMap="shopCarMap">
-		select id,customer_id,book_id,num from shopCar where customer_id=#{param1} and book_id=#{param2}
+		select
+		id,customer_id,book_id,num from shopCar where customer_id=#{param1}
+		and book_id=#{param2}
 	</select>
-	
-	<insert id="insertShopCar" >
-		insert into shopCar values(#{id},#{customerId},#{bookId},#{num})
+
+	<insert id="insertShopCar">
+		insert into shopCar
+		values(#{id},#{customerId},#{bookId},#{num})
 	</insert>
-	
+
 	<update id="addNumShopCar">
 		update shopCar set num=num+1 where id=#{id}
 	</update>
+	<select id="getShopCarByCustomerId" resultMap="shopBookMap">
+		select 
+		s.id id,s.customer_id customer_id,s.book_id book_id,s.num num,
+		b.id id2,b.name name,b.price 
+		price,b.category_id category_id2,b.image image from shopCar s,book b 
+		where s.customer_id=#{customerId} and s.book_id=b.id
+	</select>
 </mapper>
