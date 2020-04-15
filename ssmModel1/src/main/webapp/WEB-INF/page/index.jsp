@@ -258,7 +258,7 @@
 		<div class="row book">
 			<c:forEach items="${books }" var="book">
 				<div class="col-md-3 onebook">
-					<a href=""> <img src="./static/images/book_index/${book.image}" />
+					<a href="viewBook?bookId=${book.id }"> <img src="./static/images/book_index/${book.image}" />
 						<h4>${book.name }</h4>
 						<p>￥${book.price }</p>
 					</a>
