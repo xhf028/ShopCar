@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.mapperInterface.ShopCarMapper">
+
+
+	<resultMap type="com.ssm.common.bean.ShopCar" id="shopCarMap">
+		<id column="id" property="id" />
+		<result column="customer_id" property="customerId" />
+		<result column="book_id" property="bookId" />
+		<result column="num" property="num" />
+
+	</resultMap>
+	<!-- 登录进行用户匹配，通过账户查询 -->
+	<select id="verifyExsitInfo" resultMap="shopCarMap">
+		select id,customer_id,book_id,num from shopCar where customer_id=#{param1} and book_id=#{param2}
+	</select>
+	
+	<insert id="insertShopCar" >
+		insert into shopCar values(#{id},#{customerId},#{bookId},#{num})
+	</insert>
+	
+	<update id="addNumShopCar">
+		update shopCar set num=num+1 where id=#{id}
+	</update>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.mapperInterface.BookMapper">
+
+
+	<resultMap type="com.ssm.common.bean.Book" id="bookMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="price" property="price" />
+		<result column="category_id" property="categoryId" />
+		<result column="image" property="image" />
+		
+	</resultMap>
+	<!-- 登录进行用户匹配，通过账户查询 -->
+	<select  id="selectAllBook" resultMap="bookMap" >
+		select id,name,price,category_id,image from book 
+	</select>
+	
+	<select id="selectBookById" parameterType="int" resultMap="bookMap">
+		select id,name,price,category_id,image from book where category_id=#{id}
+	</select>
+
+<select  id="selectBookByBookId" parameterType="int" resultMap="bookMap">
+		select id,name,price,category_id,image from book where id=#{id}
+</select>
+
+<select id="selectBookLikeName" parameterType="String" resultMap="bookMap" >
+	select id,name,price,category_id,image from book where name like concat('%',#{name},'%')
+</select>
+</mapper>

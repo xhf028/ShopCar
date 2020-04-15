@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.mapperInterface.CustomerMapper">
+
+
+	<resultMap type="com.ssm.common.bean.Customer" id="customerMap">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<result column="zip" property="zip" />
+		<result column="address" property="address" />
+		<result column="phone" property="phone" />
+		<result column="email" property="email" />
+	</resultMap>
+	<!-- 登录进行用户匹配，通过账户查询 -->
+	
+	<select id="selectCustomer" parameterType="String" resultMap="customerMap">
+		select id,username,password,zip,address,phone,email from customer where 
+		username=#{username}
+	</select>
+
+<insert id="insertCustomer" parameterType="com.ssm.common.bean.Customer">
+	insert into customer values(#{id},#{username},#{password},#{zip},#{address},#{phone},#{email})
+</insert>
+
+<update id="updateCustomer" parameterType="com.ssm.common.bean.Customer">
+	update customer set zip=#{zip},address=#{address},phone =#{phone},email=#{email} where username=#{username}
+</update>
+</mapper>

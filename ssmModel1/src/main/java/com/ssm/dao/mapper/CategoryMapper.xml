@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.mapperInterface.CategoryMapper">
+
+
+	<resultMap type="com.ssm.common.bean.Category" id="categoryMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="father_id" property="fatherId" />
+	</resultMap>
+	
+	<resultMap type="com.ssm.common.bean.Category" id="fatherCategory" extends="categoryMap">
+		<collection property="categoryList" ofType="Category">
+			<id  column="id2" property="id" />
+			<result column="name2" property="name" />
+		</collection>
+	</resultMap>
+	<!-- 登录进行用户匹配，通过账户查询 -->
+	<select resultMap="fatherCategory" id="selectAllCatesCategory">
+		select c1.id id,c1.name name,c2.id id2,c2.name name2 from category c1,category c2 where c2.father_id=c1.id   and c2.father_id is not NULL
+	</select>
+	
+	<select id="selectAllCategory" resultMap="categoryMap">
+		select id,name,father_id from category 
+	</select>
+	
+
+
+
+</mapper>
