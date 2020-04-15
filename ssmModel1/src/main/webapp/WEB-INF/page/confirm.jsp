@@ -23,9 +23,8 @@
 	</a>
 	<div class="top" id="top">
 		<div class="herf">
-			<span ><a href="index.html">首页</a></span>
-			<span ><a>登录</a></span>
-			<span ><a>注册</a></span>
+			<span ><a href="index">首页</a></span>
+	
 			<span ><a>我的订单</a></span>
 			<span ><a>退出</a></span>
 		</div>

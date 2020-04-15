@@ -85,7 +85,7 @@
 		</div>
 		<div class="row clearfix">
 			<ul class="breadcrumb">
-				<li><a href="index">首页</a></li>
+				<li><a href="index1">首页</a></li>
 				<li>书籍详情</li>
 				<li class="active">${viewBook.name }</li>
 			</ul>
@@ -149,9 +149,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<a href="">
-						<button class="col-md-5 column btn btn-estore">加入书包</button>
-					</a>
+					
+						<button class="col-md-5 column btn btn-estore" onclick="addShopCar('${customer}','${book.id}')">加入书包</button>
+					
 					<p class="col-md-2 column"></p>
 					<a href="">
 						<button class="col-md-5 column btn btn-shopCar">立即购买</button>
