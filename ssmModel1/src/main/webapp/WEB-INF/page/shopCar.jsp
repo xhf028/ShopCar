@@ -72,13 +72,13 @@
 						</div>
 						<div class="col-md-2 column">${shopCar.book.getPrice()}</div>
 						<div class="col-md-3 column booknum">
-							<button class="btn btn-primary btn-sm add">
+							<!-- <button class="btn btn-primary btn-sm add">
 								<span class="glyphicon glyphicon-plus"></span>
-							</button>
+							</button> -->
 							<span class="btn value">${shopCar.num }</span>
-							<button class="btn btn-primary btn-sm sub">
+							<!-- <button class="btn btn-primary btn-sm sub">
 								<span class="glyphicon glyphicon-minus"></span>
-							</button>
+							</button> -->
 						</div>
 						<div class="col-md-2 column">${shopCar.num*shopCar.book.getPrice()}</div>
 						<div class="col-md-1 column">
@@ -140,8 +140,8 @@
 		<p class="caozuo">
 			<a href="toConfirm">去结算</a>
 		</p>
-		<span>已选择<font id="book-num" style="color: #b11e22;">2</font>件商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总价(不含运费)：¥<font
-			id="price-num" style="color: #b11e22;"> 199.0</font>元
+		<span>已选择<font id="book-num" style="color: #b11e22;">${bookNum }</font>件商品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总价(不含运费)：¥<font
+			id="price-num" style="color: #b11e22;">${order.total}</font>元
 		</span>
 	</div>
 	</div>

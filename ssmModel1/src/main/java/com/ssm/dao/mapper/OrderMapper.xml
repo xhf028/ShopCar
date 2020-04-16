@@ -6,8 +6,8 @@
 	<resultMap type="com.ssm.common.bean.Order" id="orderMap">
 		<id column="id" property="id" />
 		<result column="total" property="total" />
-		<result column="oraderDate" property="oraderDate" />
-		<result column="category_id" property="customerId" />
+		<result column="orderDate" property="orderDate" />
+		<result column="customer_id" property="customerId" />
 	</resultMap>
 
 	<insert id="insertOrder" parameterType="com.ssm.common.bean.Order">
@@ -16,5 +16,13 @@
 		#{total},#{orderDate},#{customerId})
 
 	</insert>
+	
+	<select id="selectOrderByCustomerId" resultMap="orderMap">
+		select id,total,orderDate,customer_id from `order` where customer_id=#{customerId}
+	</select>
+	
+	<update id="updateOrderByCustomerId" parameterType="com.ssm.common.bean.Order">
+			update  `order`  set  total =#{total} where customer_id =#{customerId}
+	</update>
 
 </mapper>

@@ -27,7 +27,8 @@
 	<div class="top" id="top">
 		<div class="herf">
 			<span><a href="index">首页</a></span> <span><a href="userinfo">个人信息</a></span>
-			<span><a href="shopCar">我的订单</a></span> <span><a href="outLogin">退出</a></span>
+			<span><a href="shopCar">我的订单</a></span> <span><a
+				href="outLogin">退出</a></span>
 		</div>
 	</div>
 
@@ -35,23 +36,26 @@
 		<div class="row clearfix">
 			<div class="col-md-3 column">
 				<img src="./static/images/logo.png" class="logo">
-			</div> 
-			<form action="search">
-			<div class="col-md-6 column">
-				<div class="input-group search">
-					<input type="text" name="bookName" class="form-control" placeholder="请输入你要检索的书名"
-						style="padding: 20px"> <span class="input-group-btn">
-						<button class="btn btn-estore" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</div>
 			</div>
+			<form action="search">
+				<div class="col-md-6 column">
+					<div class="input-group search">
+						<input type="text" name="bookName" class="form-control"
+							placeholder="请输入你要检索的书名" style="padding: 20px"> <span
+							class="input-group-btn">
+							<button class="btn btn-estore" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</div>
+				</div>
 			</form>
 			<div class="col-md-3 column bag">
-				<button class="btn btn-estore">
-					<span class="glyphicon glyphicon-briefcase"> </span>&nbsp;我的书包
-				</button>
+				<a href="shopCar">
+					<button class="btn btn-estore">
+						<span class="glyphicon glyphicon-briefcase"> </span>&nbsp;我的书包
+					</button>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -75,13 +79,13 @@
 					<dt>${cate.name}:</dt>
 					<c:forEach items="${cate.categoryList }" var="cate2">
 						<dd>
-						<a href="toList?cateid=${cate2.id }">${cate2.name }</a>
-					</dd>
+							<a href="toList?cateid=${cate2.id }">${cate2.name }</a>
+						</dd>
 					</c:forEach>
-					
+
 				</dl>
 			</c:forEach>
-			
+
 		</div>
 		<div class="row clearfix">
 			<ul class="breadcrumb">
@@ -149,9 +153,10 @@
 					</div>
 				</div>
 				<div class="row">
-					
-						<button class="col-md-5 column btn btn-estore" onclick="addShopCar('${customer}','${viewBook.id}')">加入书包</button>
-					
+
+					<button class="col-md-5 column btn btn-estore"
+						onclick="addShopCar('${customer}','${viewBook.id}')">加入书包</button>
+
 					<p class="col-md-2 column"></p>
 					<a href="shopCar">
 						<button class="col-md-5 column btn btn-shopCar">立即购买</button>

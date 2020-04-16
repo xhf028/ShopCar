@@ -55,11 +55,12 @@ public class ShopCarServiceImpl implements ShopCarService {
 
 	}
 
-	@Override
+/*	@Override
 	public void addOrder() {
 		// TODO Auto-generated method stub
 		Customer customer = (Customer) session.getAttribute("customer");
-		ShopCar shopCar = new ShopCar();
+		//ShopCar shopCar = new ShopCar();
+		
 
 		double total = 0;
 		
@@ -79,6 +80,6 @@ public class ShopCarServiceImpl implements ShopCarService {
 		Order order = new Order(total, new Timestamp(System.currentTimeMillis()), customer.getId());
 		orderMapper.insertOrder(order);
 
-	}
+	}*/
 
 }

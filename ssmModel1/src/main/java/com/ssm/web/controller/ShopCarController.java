@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ssm.common.bean.Customer;
+import com.ssm.service.serviceImpl.OrderServiceImpl;
 import com.ssm.service.serviceImpl.ShopCarServiceImpl;
 
 /**
@@ -20,13 +21,14 @@ public class ShopCarController {
 
 	@Autowired
 	private HttpSession session;
-	
+	@Autowired
+	private OrderServiceImpl orderService;
 	@Autowired
 	private ShopCarServiceImpl shopCarService;
 	
 	@RequestMapping("shopCar")
 	public String getShopCar() {
-		shopCarService.addOrder();
+		orderService.addOrder();
 		return "shopCar";
 	}
 	

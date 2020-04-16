@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ajax发送json字符串</title>
-<script type="text/javascript">
-	function myFunction(){
-		alert("发送请求");
-	}
-</script>
+<title>项目结束</title>
+
 </head>
 <body>
-	<button onclick="myFunction()">ajax</button>
+	<h1 style="color: red;text-align: center;">到此就全部结束了！谢谢</h1>
 </body>
 </html>

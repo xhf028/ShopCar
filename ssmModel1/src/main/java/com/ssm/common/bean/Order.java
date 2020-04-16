@@ -19,11 +19,8 @@ public class Order {
 	
 	
 	
-	public Order(double total, int customerId) {
-		super();
-		this.total = total;
-		this.customerId = customerId;
-	}
+	
+	
 	public List<OrderLine> getList() {
 		return list;
 	}

@@ -11,4 +11,8 @@ public interface OrderMapper {
 
 	//插入订单
 	void insertOrder(Order order);
+	//根据顾客ID查询订单
+	Order selectOrderByCustomerId(int customerId);
+	
+	void updateOrderByCustomerId(Order order);
 }
