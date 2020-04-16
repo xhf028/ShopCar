@@ -30,7 +30,7 @@
 	<div class="top">
     	<div class="top_center">
             <ul class="top_bars">
-            	<li><a href="login">退出</a>|</li>
+            	<li><a href="outLogin">退出</a>|</li>
                 <li><a href="#">我的订单<span class="jt_down"></span></a>|</li>
                 <li><a href="#">关注杰普<span class="jt_down"></span></a>|</li>
                 <li><a href="index1">首页<span class="jt_down"></span></a></li>
@@ -46,11 +46,11 @@
                 <span>搜索</span>
             </div>
             <p>
-            	<a href="list.html">文学类</a>|
-            	<a href="list.html">教育类</a>|
-                <a href="list.html">计算机</a>|
-                <a href="list.html">儿童类</a>|
-                <a href="list.html">漫画类</a>|
+            	<a href="list">文学类</a>|
+            	<a href="listl">教育类</a>|
+                <a href="list">计算机</a>|
+                <a href="list">儿童类</a>|
+                <a href="list">漫画类</a>|
             </p>
         </div>
         <div class="h3_right">
