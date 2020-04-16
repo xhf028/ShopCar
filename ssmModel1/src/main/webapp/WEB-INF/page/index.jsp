@@ -210,9 +210,9 @@
 				</div>
 			</div>
 			<div class="col-md-2 column book">
-				<a href="viewBook"> <img
+				 <img
 					src="./static/images/book_index/book6.jpg">
-				</a>
+				
 				<div class="price">
 					<span class="price-one">119.0</span><span class="price-two">79.0</span>
 				</div>
@@ -220,33 +220,33 @@
 
 			</div>
 			<div class="col-md-2 column book">
-				<a href="viewBook"> <img
+				 <img
 					src="./static/images/book_index/book10.jpg">
-				</a>
+			
 				<div class="price">
 					<span class="price-one">119.0</span><span class="price-two">79.0</span>
 				</div>
 			</div>
 			<div class="col-md-2 column book">
-				<a href="viewBook"> <img
+				<img
 					src="./static/images/book_index/book9.jpg">
-				</a>
+				
 				<div class="price">
 					<span class="price-one">119.0</span><span class="price-two">79.0</span>
 				</div>
 			</div>
 			<div class="col-md-2 column book">
-				<a href="viewBook"> <img
+				<img
 					src="./static/images/book_index/book8.jpg">
-				</a>
+				
 				<div class="price">
 					<span class="price-one">119.0</span><span class="price-two">79.0</span>
 				</div>
 			</div>
 			<div class="col-md-2 column book">
-				<a href="viewBook"> <img
+				 <img
 					src="./static/images/book_index/book7.jpg">
-				</a>
+				
 				<div class="price">
 					<span class="price-one">119.0</span><span class="price-two">79.0</span>
 				</div>
