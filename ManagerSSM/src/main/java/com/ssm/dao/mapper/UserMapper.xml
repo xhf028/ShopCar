@@ -13,10 +13,11 @@
 		<result column="intoDate" property="intoDate" />
 		<result column="state" property="state" />
 		<result column="status" property="status" />
+		<result column="dept_id" property="deptId" />
 </resultMap>
 
 <select  id="selectUserByUserName" resultMap="userMap">
-	select id,username,password,name,phone,email,birthday,intoDate,state,status from users where username=#{username}
+	select id,username,password,name,phone,email,birthday,intoDate,state,status,dept_id from users where username=#{username}
 </select>
 
 </mapper>

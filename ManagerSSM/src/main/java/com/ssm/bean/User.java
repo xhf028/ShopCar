@@ -19,6 +19,13 @@ public class User {
 	private Timestamp intoDate; //入职时间
 	private String state;		//员工状态(是否在职)
 	private int status;			//身份(是否为管理员)
+	private int deptId;
+	public int getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(int deptId) {
+		this.deptId = deptId;
+	}
 	public User(int id, String username, String password, String name, String phone, String email, Timestamp birthday,
 			Timestamp intoDate, String state, int status) {
 		super();
@@ -35,6 +42,15 @@ public class User {
 	}
 	public User() {
 		super();
+	}
+	public User(String username, String password, String name, String phone, String email, Timestamp birthday) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.birthday = birthday;
+
 	}
 	public User(String username, String password, String name, String phone, String email, Timestamp birthday,
 			Timestamp intoDate, String state, int status) {
@@ -113,8 +129,9 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", phone="
 				+ phone + ", email=" + email + ", birthday=" + birthday + ", intoDate=" + intoDate + ", state=" + state
-				+ ", status=" + status + "]";
+				+ ", status=" + status + ", deptId=" + deptId + "]";
 	}
+
 	
 	
 	

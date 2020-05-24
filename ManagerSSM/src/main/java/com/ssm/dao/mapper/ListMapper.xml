@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.mapperInterface.ListMapper">
+
+<resultMap id="userMap" type="com.ssm.bean.User">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<result column="name" property="name" />
+		<result column="phone" property="phone" />
+		<result column="email" property="email" />
+		<result column="birthday" property="birthday" />
+		<result column="intoDate" property="intoDate" />
+		<result column="state" property="state" />
+		<result column="status" property="status" />
+		<result column="dept_id" property="deptId" />
+</resultMap>
+
+<select  id="queryAllUser" resultMap="userMap">
+	select id,username,password,name,phone,email,birthday,intoDate,state,status,dept_id from users 
+</select>
+
+<select  id="queryAllUserByName" resultMap="userMap">
+	select id,username,password,name,phone,email,birthday,intoDate,state,status,dept_id from users where  name like concat('%',#{name},'%')
+</select>
+<select  id="queryUserById" resultMap="userMap">
+	select id,username,password,name,phone,email,birthday,intoDate,state,status,dept_id from users  where id = #{id}
+</select>
+<update id="updateUser" parameterType="com.ssm.bean.User">
+	update users set  password =#{password},name = #{name},phone = #{phone},email= #{email},state= #{state},status = #{status},dept_id=#{deptId} where  id = #{id}
+</update>
+
+
+<select  id="queryActionUser" resultMap="userMap">
+	select id,username,password,name,phone,email,birthday,intoDate,state,status,dept_id from users  where state = 'Active'
+</select>
+<select  id="queryUserByDeptId" resultMap="userMap">
+	select id,username,password,name,phone,email,birthday,intoDate,state,status,dept_id from users  where dept_id=#{deptId}
+</select>
+
+</mapper>

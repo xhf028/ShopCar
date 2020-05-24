@@ -1,175 +1,199 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-  
-  <head>
-    <meta charset="UTF-8">
-    <title>用户信息</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <link rel="shortcut icon" href="./static/logo.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./static/css/font.css">
-    <link rel="stylesheet" href="./static/css/xadmin.css">
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./static/lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./static/js/xadmin.js"></script>
-    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  
-  <body>
-    <div class="x-nav">
-    <a href="index">首页</a>
+	pageEncoding="UTF-8"%>
+<%
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getLocalPort()
+			+ request.getContextPath() + "/";
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-    </div>
-    <div class="x-body">
-      <div class="layui-row" style="" align="center">
-        <form class="layui-form layui-col-md12 x-so" method="get" action="${ctx }/user/list">
-          <!-- <input class="layui-input" placeholder="开始日" name="start" id="start">
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<title>后台登录</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="后台管理" />
+
+<link rel="shortcut icon" href="./static/logo.ico" type="image/x-icon" />
+<link rel="stylesheet" href="./static/css/font.css">
+<link rel="stylesheet" href="./static/css/xadmin.css">
+
+
+</head>
+<body>
+	<!-- 顶部开始 -->
+	<div class="container">
+		<div class="logo">
+			<a href="index">人事管理系统</a>
+		</div>
+		<div class="left_open">
+			<i title="展开左侧栏" class="iconfont">&#xe699;</i>
+		</div>
+
+		<ul class="layui-nav right" lay-filter="">
+			<li class="layui-nav-item">${user.name}</li>
+			<li class="layui-nav-item to-index"><a href="outLogin">登出</a></li>
+		</ul>
+
+
+
+	</div>
+	<!-- 顶部结束 -->
+	<!-- 中部开始 -->
+	<!-- 左侧菜单开始 -->
+	<div class="left-nav">
+		<div id="side-nav">
+			<ul id="nav">
+				<li id ="aaa"><a href="list"> <i class="iconfont">&#xe6b8;</i>
+						<cite>员工管理</cite> <i class="iconfont nav_right">&#xe697;</i>
+				</a> <a href="add"> <i class="iconfont">&#xe6b8;</i> <cite>添加用户</cite>
+						<i class="iconfont nav_right">&#xe697;</i>
+				</a><a href="deptList"> <i class="iconfont">&#xe723;</i>
+						<cite>部门管理</cite> <i class="iconfont nav_right">&#xe697;</i>
+				</a></li>
+				
+				<li><a href="querySameDept"> <i class="iconfont">&#xe726;</i>
+						<cite>部门员工</cite> <i class="iconfont nav_right">&#xe697;</i>
+				</a></li>
+				<li><a href="userInfo"> <i class="iconfont">&#xe726;</i> <cite>个人信息</cite>
+						<i class="iconfont nav_right">&#xe697;</i>
+				</a></li>
+
+			</ul>
+		</div>
+	</div>
+	<!-- <div class="x-slide_left"></div> -->
+	<!-- 左侧菜单结束 -->
+	<!-- 右侧主体开始 -->
+	<div class="page-content">
+		<div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+			<ul class="layui-tab-title">
+				<li class="home"><i class="layui-icon">&#xe68e;</i>员工管理</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<div class="x-body">
+						<div class="layui-row" style="" align="center">
+							<form class="layui-form layui-col-md12 x-so" method="get"
+								action="queryList">
+								<!-- <input class="layui-input" placeholder="开始日" name="start" id="start">
           <input class="layui-input" placeholder="截止日" name="end" id="end"> -->
-          <input type="text" name="content" style="width:50%;"  placeholder="请输入查找内容" autocomplete="off" class="layui-input">
-          <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">搜索</i></button>
-        </form>
-      </div>
-      <%-- <xblock>
+								<input type="text" id="content" name="content"
+									style="width: 50%;" placeholder="请输入员工姓名相关信息"
+									class="layui-input"> <input class="layui-btn"
+									type="submit" value="搜索"> <a class="layui-btn"
+									href="selectActionUser">活动用户</a> </input>
+							</form>
+						</div>
+						<%-- <xblock>
  <!--        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button> -->
         <button class="layui-btn" onclick="x_admin_show('添加用户','${ctx}/dept/add')"><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
       </xblock> --%>
-     
-      
-      <table class="layui-table">
-        <thead>
-          <tr>
-            <th>
-              <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-            </th>
-            <th>ID</th>
-            <th>登录名</th>
-            <th>用户名</th>
-            <th>注册日期</th>
-            <th>操作</th>
-        </thead>
-        <tbody>
-        <c:forEach items="${requestScope.list}" var="dept" varStatus="stat">
-     <tr>
-            <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
-            </td>
-            <td>${dept.id}</td>
-            <td>${dept.loginname }</td>
-            <td>${dept.username }</td>
-            <td>${dept.create_date }</td>
-            
-           <!--  <td class="td-status">
+
+
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th>
+										<div class="layui-unselect header layui-form-checkbox"
+											lay-skin="primary">
+											<i class="layui-icon">&#xe605;</i>
+										</div>
+									</th>
+									<th>ID</th>
+									<th>登录名</th>
+									<th>姓名</th>
+									<th>生日</th>
+									<th>入职时间</th>
+									<th>电话</th>
+									<th>邮箱</th>
+									<th>在职状态</th>
+									<th>身份状态</th>
+									<th>部门</th>
+									<th>操作</th>
+							</thead>
+							<tbody>
+								<c:forEach items="${userList}" var="listU">
+									<tr>
+										<td>
+											<div class="layui-unselect layui-form-checkbox"
+												lay-skin="primary" data-id='2'>
+												<i class="layui-icon">&#xe605;</i>
+											</div>
+										</td>
+										<td>${listU.id}</td>
+										<td>${listU.username }</td>
+										<td>${listU.name }</td>
+										<td>${listU.birthday }</td>
+										<td>${listU.intoDate}</td>
+										<td>${listU.phone}</td>
+										<td>${listU.email}</td>
+										<td>${listU.state}</td>
+										<td><c:if test="${listU.status==0}">
+							管理员
+						</c:if> <c:if test="${listU.status==1}">
+							普通员工
+						</c:if></td>
+						<td>${listU.deptId}</td>
+
+
+
+										<!--  <td class="td-status">
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td> -->
-            <td class="td-manage">
-             <!--  <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
+										<td class="td-manage">
+											<!--  <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                 <i class="layui-icon">&#xe601;</i>
-              </a> -->
-              <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
-              <a title="编辑"  href="${ctx}/notice/add?id=${dept.id }">
-                <i class="layui-icon">&#xe642;</i>
-              </a>
-              <a title="删除" onclick="member_del(this,'${dept.id }')" href="javascript:;">
-                <i class="layui-icon">&#xe640;</i>
-              </a>
-            </td>
-          </tr>
-				
-			</c:forEach>
-        
-          
-          
-          
-        </tbody>
-      </table>
-      <div class="page">
-        <div>
-          <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
-          <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
-          <a class="next" href="">&gt;&gt;</a>
-        </div>
-      </div>
+              </a> --> <%-- <a title="编辑"  onclick="x_admin_show('编辑','${ctx}/job/add?id=${dept.id }');" href="javascript:;"> --%>
+											<a title="编辑" href="changeUserInfo?id=${listU.id}"> <i
+												class="layui-icon">&#xe642;</i>
+										</td>
+									</tr>
 
-    </div>
-    <script>
-      layui.use('laydate', function(){
-        var laydate = layui.laydate;
-        
-        //执行一个laydate实例
-        laydate.render({
-          elem: '#start' //指定元素
-        });
-
-        //执行一个laydate实例
-        laydate.render({
-          elem: '#end' //指定元素
-        });
-      });
-
-       /*用户-停用*/
-      function member_stop(obj,id){
-          layer.confirm('确认要停用吗？',function(index){
-
-              if($(obj).attr('title')=='启用'){
-
-                //发异步把用户状态进行更改
-                $(obj).attr('title','停用')
-                $(obj).find('i').html('&#xe62f;');
-
-                $(obj).parents("tr").find(".td-status").find('span').addClass('layui-btn-disabled').html('已停用');
-                layer.msg('已停用!',{icon: 5,time:1000});
-
-              }else{
-                $(obj).attr('title','启用')
-                $(obj).find('i').html('&#xe601;');
-
-                $(obj).parents("tr").find(".td-status").find('span').removeClass('layui-btn-disabled').html('已启用');
-                layer.msg('已启用!',{icon: 5,time:1000});
-              }
-              
-          });
-      }
-
-      /*用户-删除*/
-      function member_del(obj,id){
-          layer.confirm('确认要删除吗？',function(index){
-              //发异步删除数据
-              //等以后再使用异步，这里先使用
-              $.get("${ctx}/user/delete?id="+id);
-              $(obj).parents("tr").remove();
-              layer.msg('已删除!',{icon:1,time:1000});
-          });
-      }
+								</c:forEach>
 
 
 
-      function delAll (argument) {
 
-        var data = tableCheck.getData();
-  
-        layer.confirm('确认要删除吗？'+data,function(index){
-            //捉到所有被选中的，发异步进行删除
-            layer.msg('删除成功', {icon: 1});
-            $(".layui-form-checked").not('.header').parents('tr').remove();
-        });
-      }
-    </script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
-  </body>
+							</tbody>
+						</table>
 
+
+					</div>
+					<%-- <div class="x-body layui-anim layui-anim-up">
+						<blockquote class="layui-elem-quote">
+							欢迎职工： <span class="x-red">${user.name} </span>！当前时间:<%=new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss").format(new Date())%></blockquote>
+					</div> --%>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-content-bg"></div>
+	<!-- 右侧主体结束 -->
+	<!-- 中部结束 -->
+	<!-- 底部开始 -->
+	<div class="footer">
+		<div class="copyright">信科162向鸿飞</div>
+	</div>
+	<!-- 底部结束 -->
+
+	<script type="text/javascript">
+	var aaa = document.getElementById("aaa")
+	aaa.onclick= function(){
+		if(${user.status}==1){
+			alert("暂无权限")
+			return false
+		}
+	}
+	</script>
+
+</body>
 </html>

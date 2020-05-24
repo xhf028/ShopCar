@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.dao.mapperInterface.DeptMapper">
+
+<resultMap id="deptMap" type="com.ssm.bean.Dept">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="remark" property="remark" />
+
+</resultMap>
+
+<select  id="queryAllDept" resultMap="deptMap">
+	select id,name,remark from dept_inf
+</select>
+
+<select  id="queryDeptByName" resultMap="deptMap">
+	select id,name,remark from dept_inf where name like concat('%',#{name},'%')
+</select>
+
+<select  id="queryDeptById" resultMap="deptMap">
+	select id,name,remark from dept_inf where id =#{id}
+</select>
+</mapper>

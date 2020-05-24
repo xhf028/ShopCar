@@ -31,12 +31,12 @@
 			<form action="veriyLogin" method="post">
 				<div class="login-ic">
 					<i ></i>
-					<input type="text"  value="用户名" name="username" />
+					<input type="text"   name="username" />
 					<div class="clear"><span style="color: red">${error}</span> </div>
 				</div>
 				<div class="login-ic">
 					<i class="icon"></i>
-					<input type="password"  value="密码" name= "password" />
+					<input type="password"   name= "password" />
 					<div class="clear"> </div>
 				</div>
 			
